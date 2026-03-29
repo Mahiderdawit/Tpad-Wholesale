@@ -1,0 +1,42 @@
+:root {
+    --primary: #002c52; /* Your Navy Blue */
+    --accent: #d32f2f;  /* Your Red */
+    --white: #ffffff;
+    --gray: #f8f9fa;
+    --text: #333;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+/* Header */
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+.logo { font-size: 24px; font-weight: 800; color: var(--primary); }
+.logo span { color: var(--accent); }
+nav a { text-decoration: none; color: var(--text); margin-left: 20px; font-weight: 600; font-size: 14px; }
+.nav-btn { background: var(--primary); color: white !important; padding: 10px 15px; border-radius: 4px; }
+
+/* Hero */
+.hero { height: 60vh; background: linear-gradient(rgba(0,44,82,0.8), rgba(0,44,82,0.8)), url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2000') center/cover; display: flex; align-items: center; color: white; padding: 0 8%; }
+.hero h1 { font-size: 3rem; margin-bottom: 20px; }
+.hero p { max-width: 700px; margin-bottom: 30px; font-size: 1.1rem; opacity: 0.9; }
+.btn-main { background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 4px; margin-right: 15px; }
+
+/* Deep Content Section */
+.main-content { padding: 80px 8%; background: white; }
+.intro-text { text-align: center; max-width: 900px; margin: 0 auto 60px; }
+.intro-text h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 20px; }
+
+.row { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; }
+.row.reverse { flex-direction: row-reverse; }
+.text { flex: 1; }
+.text h3 { color: var(--primary); font-size: 1.8rem; margin-bottom: 15px; border-left: 5px solid var(--accent); padding-left: 15px; }
+.visual { flex: 1; background: var(--gray); height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #999; font-weight: bold; }
+
+/* Bottom Maintenance Section */
+.maintenance-highlight { background: var(--gray); padding: 80px 8%; }
+.highlight-box { background: var(--primary); color: white; padding: 50px; border-radius: 15px; text-align: center; }
+.highlight-box h2 { margin-bottom: 20px; }
+.highlight-box p { max-width: 800px; margin: 0 auto 30px; line-height: 1.8; }
+.read-more { color: var(--accent); text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+
+footer { padding: 30px; text-align: center; background: #111; color: white; font-size: 14px; }
