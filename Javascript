@@ -1,0 +1,68 @@
+/**
+ * TPAD WHOLESALE - Enterprise Logic
+ * This script handles professional UI interactions.
+ */
+
+// 1. STICKY HEADER DYNAMICS
+// This makes the header shrink slightly when you scroll, 
+// which is a classic "expensive website" detail.
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.style.padding = "10px 8%";
+        header.style.background = "rgba(255, 255, 255, 0.98)";
+        header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.15)";
+    } else {
+        header.style.padding = "20px 8%";
+        header.style.background = "#ffffff";
+        header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+    }
+});
+
+// 2. SMOOTH SCROLLING
+// Ensures that when a user clicks "Maintenance" or "Solutions", 
+// the page slides down elegantly instead of jumping.
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        // Only apply to internal links (starting with #)
+        if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // Adjust for header height
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+
+// 3. REVEAL ANIMATION ON SCROLL
+// This makes the "Deep Content" rows fade in as the boss scrolls down.
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.row').forEach(row => {
+    // Initial state (hidden)
+    row.style.opacity = "0";
+    row.style.transform = "translateY(30px)";
+    row.style.transition = "all 0.8s ease-out";
+    observer.observe(row);
+});
+
+// 4. CONSOLE LOG FOR DEVELOPER (You!)
+// Shows your boss you are monitoring the site performance.
+console.log("TPAD Enterprise Core Loaded successfully.");
